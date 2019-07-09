@@ -33,17 +33,15 @@ public class JavaFinalProjectExecution {
 			String savepath = output;
 			File dir = new File(path);
 			File[] fileList = dir.listFiles();
-			Thread t = null;
 			int i = 0;
 			for(File file : fileList) {		
 				String studentid = file.getName().toString().split(".zip")[0];
 				
 				ZipReader zipReader = new ZipReader(file.toString(), studentid);
-				t = new Thread(zipReader);
-				t.start();
+				zipReader.run();
 				
 				//for collecting header
-				if(i==0) {
+				/*if(i==0) {
 					try {
 						t.join();
 					} catch (InterruptedException e) {
@@ -51,15 +49,15 @@ public class JavaFinalProjectExecution {
 						e.printStackTrace();
 					}
 					i=1;
-				}
+				}*/
 			}
 			
-			try {
-				Thread.sleep(2000);
+			/*try {
+				Thread.sleep(10000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}			
+			}		*/	
 
 			String[] save = savepath.split("\\.");	
 			Writer writer1 = new Writer(ExcelReader.header1, ExcelReader.result1, save[0] + "1." + save[1]);

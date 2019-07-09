@@ -53,7 +53,7 @@ public class ExcelReader {
 	        Row row = sheet.getRow(startrow);
 	        if(header.isEmpty()) {
 //	        	System.out.println("");
-//	        	System.out.println("******************헤더 만들기");
+//	        	System.out.println("******************�뿤�뜑 留뚮뱾湲�");
 		        for(int i=0; i<row.getLastCellNum(); i++) {
 		        	Cell cell = row.getCell(i);
 		        	switch (cell.getCellType()) { 
@@ -67,7 +67,7 @@ public class ExcelReader {
 		        	} 
 		        }
 	        } else {
-//	        	System.out.println("헤더 비교");
+//	        	System.out.println("�뿤�뜑 鍮꾧탳");
 	        	try {
 		        	for(int i=0; i<row.getLastCellNum(); i++) {
 		        		if(!row.getCell(i).toString().equals(header.get(i))) {
@@ -114,11 +114,13 @@ public class ExcelReader {
 	        oldWorkbook.close();
 	        result.add(values, studentid);
 		}catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return;
+			//e.printStackTrace();
+			//return;
 		} catch (IOException e) {
-			e.printStackTrace();
-			return;
+			//e.printStackTrace();
+			//return;
+		} catch (Exception e) {
+			
 		}
 	}
 	

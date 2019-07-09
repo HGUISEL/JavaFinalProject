@@ -14,7 +14,7 @@ import com.google.errorprone.annotations.Var;
 
 import edu.handong.csee.linkedlist.LinkedList;
 
-public class ZipReader extends Thread {
+public class ZipReader{
 	private String file;
 	private String studentid;
 	
@@ -25,7 +25,7 @@ public class ZipReader extends Thread {
 	
 	public void run() {
 		System.out.println("***Thread" + " " + studentid);
-		readFileInZip(file, studentid);	
+		readFileInZip(file, studentid.substring(0,8));	
 	}
 
 	public void readFileInZip(String path, String studentid) {
@@ -43,6 +43,7 @@ public class ZipReader extends Thread {
 		        
 		        myReader.getData(stream, studentid);
 		    }
+		    zipFile.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
