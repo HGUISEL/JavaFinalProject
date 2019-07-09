@@ -6,3 +6,9 @@ build
 /bin/
 /.classpath
 /.project
+/a1.csv
+/a1.xlsx
+/a2.csv
+/a2.xlsx
+/ZipReader/
+/error.csv
